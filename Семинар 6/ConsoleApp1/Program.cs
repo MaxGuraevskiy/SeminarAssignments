@@ -32,12 +32,23 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите путь к директории");
             string path;
+            DirectoryInfo userDir;
             do
             {
+                Console.WriteLine("Введите путь к директории");
                 path = Console.ReadLine();
-            } while (!new DirectoryInfo(path).Exists);
+
+                userDir = null;
+                try
+                {
+                    userDir = new DirectoryInfo(path);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Путь введен некорректно. Повторите ввод");
+                }
+            } while (userDir == null || !userDir.Exists);
 
             int level = 0;
             do

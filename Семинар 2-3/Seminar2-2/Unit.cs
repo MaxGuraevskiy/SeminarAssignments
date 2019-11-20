@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Seminar2_2
 {
-    class Unit
+    abstract class Unit
     {
         private readonly int maxHp;
         private int hp;
